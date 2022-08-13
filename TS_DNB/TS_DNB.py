@@ -19,3 +19,7 @@ def MAM(x,windo_size=10,padding = 'same'):
     x_LP[:windo_size//2] = x_LP_tmp[0]
     x_LP[-windo_size//2:] = x_LP_tmp[-1]
     return  x_LP
+
+
+if __name__ == "__main__":
+    print("Hello DNB world")
