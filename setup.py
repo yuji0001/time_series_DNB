@@ -18,7 +18,7 @@ setuptools.setup(
     packages=setuptools.find_packages(),
     entry_points={
         "console_scripts": [
-            "time_series_DNB= time_series_DNB.time_series_DNB:main",
+            "TS_DNB= TS_DNB.TS_DNB:main",
         ],
     },
     classifiers=[
