@@ -7,8 +7,9 @@ from  numpy.lib.stride_tricks import sliding_window_view as sliding_window
 def timer(func):
     def wrapper(*args, **kwargs):
         time_s = time.time()
-        func(*args, **kwargs)
-        print(f'calculation time ={time.time() - time_s}sec')
+        res = func(*args, **kwargs)
+        print(f'calculation time ={time_s - time.time()}sec')
+        return res
     return wrapper
 
 @timer
@@ -26,12 +27,14 @@ def time_DNB(x,window_size,padding = 'same'):
             cov_time_tmp[i] =sigmas.max()
 
     if padding == 'same':
+        # padding marage data using the edge 
         cov_time = np.zeros(x.shape[0])
         cov_time[window_size//2:-window_size//2+1] = cov_time_tmp
         cov_time[:window_size//2] = cov_time_tmp[0]
         cov_time[-window_size//2+1:] = cov_time_tmp[-1]
         return cov_time
     elif padding =='online':
+        # cov_time[t] is calculated as time-sereis data t - window_size : t
         cov_time = np.zeros(x.shape[0])
         cov_time[:window_size-1] = cov_time_tmp[0]
         cov_time[window_size-1:] = cov_time_tmp

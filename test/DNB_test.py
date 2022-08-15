@@ -6,3 +6,5 @@ from TS_DNB.TS_DNB import time_DNB
 #%%
 times, x,y = May_model.get_data()
 plt.plot(time_DNB(x,1000))
+
+# %%
