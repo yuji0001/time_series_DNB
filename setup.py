@@ -12,7 +12,7 @@ setuptools.setup(
     description="DNB library for long time series data",
     long_description="DNB library for long time series data",
     long_description_content_type="text/markdown",
-    package_dir={"": "src"},
+    # package_dir={"": "src"},
     url="https://github.com/yuji0001/time_series_DNB",
     packages=setuptools.find_packages(),
     # entry_points={
