@@ -1,5 +1,5 @@
 # Spatial harvested_population model 
-# van Nes, Egbert H., and Marten Scheffer. "Implications of spatial heterogeneity for catastrophic regime shifts in ecosystems." Ecology 86.7 (2005): 1797-1807..
+# van Nes, Egbert H., and Marten Scheffer. "Implications of spatial heterogeneity for catastrophic regime shifts in ecosystems." Ecology 86.7 (2005): 1797-1807.
 import numpy as np
 import matplotlib.pyplot as plt
 import tqdm
