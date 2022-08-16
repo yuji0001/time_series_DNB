@@ -8,13 +8,22 @@ def timer(func):
     def wrapper(*args, **kwargs):
         time_s = time.time()
         res = func(*args, **kwargs)
-        print(f'calculation time ={time_s - time.time()}sec')
+        print(f'calculation time ={time.time() - time_s}sec')
         return res
     return wrapper
 
 @timer
-def time_DNB(x,window_size,padding = 'same'):
-    print('caluculate time series DNB:') 
+def EWS_DNB(x,window_size,padding = 'online',normalization = 'straight'):
+    print('caluculating time series DNB:')     
+    # normalization
+    if normalization == 'std':
+        x = x /x.std(0)
+    elif normalization == 'minmax':
+        x = x /(x.max(0) - x.min(0))
+    elif normalization != 'straight':
+        raise NameError('select \'straight\', \'minmax\', or \'std\' ')
+        return -1
+    # 1 dim or n dim
     if len(x.shape) ==1:
         xs = sliding_window(x,window_size)
         cov_time_tmp = xs.std(1)

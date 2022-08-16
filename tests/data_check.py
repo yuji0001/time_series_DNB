@@ -1,7 +1,7 @@
 
 #%%
-from TS_DNB.data import May_model
-from TS_DNB.data import saddle_node_model
+from src.dnb_ts.data import May_model
+from src.dnb_ts.data import saddle_node_model
 import matplotlib.pyplot as plt
 # %%
 
