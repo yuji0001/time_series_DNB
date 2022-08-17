@@ -33,7 +33,7 @@ def EWS_DNB(x,window_size,padding = 'online',normalization = 'straight'):
         xs = sliding_window(x,(window_size,1)).reshape(-1,x.shape[1],window_size)
         cov_time_tmp = np.zeros(xs.shape[0])
         for i in tqdm.tqdm(range(0,cov_time_tmp.shape[0])):
-            sigmas,_ =np.linalg.eig(np.cov(xs[i]))
+            sigmas,_ =np.linalg.eigh(np.cov(xs[i]))
             cov_time_tmp[i] =sigmas.max()
 
     if padding == 'same':
