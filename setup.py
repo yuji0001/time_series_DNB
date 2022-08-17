@@ -3,7 +3,7 @@ import os
 
 setuptools.setup(
     name="time_series_DNB",
-    version="alpha_0.3",
+    version="0.31",
     author="Yuji Okamoto",
     author_email="yuji.0001@gmail.com",
     description="DNB library for long time series data",
