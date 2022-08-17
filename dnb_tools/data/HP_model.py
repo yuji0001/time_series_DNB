@@ -54,7 +54,7 @@ def overview():
     xtmp = x[tau2]- x[tau2].mean()
     # x_delta = xtmp.max()-xtmp.min()
     x_delta = 4*xtmp.std()
-    plt.title(f'$t$ = {times[tau1]:.1f}')
+    plt.title(f'$t$ = {times[tau2]:.1f}')
     plt.imshow(xtmp,cmap="GnBu")
     plt.clim([xtmp.mean()- x_delta/2,xtmp.mean()+ x_delta/2])
 
@@ -86,7 +86,7 @@ def overview():
     plt.text(times[tau1],x.mean((1,2))[tau1],f'$t$ = {times[tau1]:.1f}')
     plt.text(times[tau2],x.mean((1,2))[tau2],f'$t$ = {times[tau2]:.1f}')
     plt.text(times[tau3],x.mean((1,2))[tau3],f'$t$ = {times[tau3]:.1f}')
-
+    plt.xlim([times[0],times[-1]])
     plt.xlabel('Time : $t$')
     plt.ylabel('Biomass : $x_i$')
 
