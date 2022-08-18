@@ -12,7 +12,7 @@ def f(x,c):
 def ddx(X,dx):
     return dx*(np.roll(X,1,axis=0) + np.roll(X,1,axis=1) + np.roll(X,-1,axis=0) + np.roll(X,-1,axis=1) - 4* X)
 
-def get_data(n = 20,sigma = 0.01):
+def get_data(n = 20,sigma = 0.1):
     dt = 0.1
     dx = 0.01
     T = 1000
@@ -41,11 +41,11 @@ def get_data(n = 20,sigma = 0.01):
     return times,x.reshape(-1,n*n),y
 
 def overview():
-    times,x,y = get_data(n=20,sigma=0.01)
+    times,x,y = get_data(n=20,sigma=0.1)
     x = x.reshape(-1,20,20)
-    tau1 = 100
+    tau1 = 1000
     tau2 = np.argmax(y)
-    tau3 = -1
+    tau3 = -500
 
     plt.figure(figsize=(20,10))
 
@@ -67,21 +67,20 @@ def overview():
 
     tmp = plt.subplot2grid((2, 3), (0, 2))
     plt.grid(False)
-    tau = -1
     xtmp = x[tau3] - x[tau3].mean()
     plt.title(f'$t$ = {times[tau3]:.1f}')
     plt.imshow(xtmp,cmap="GnBu")
     plt.clim([xtmp.mean()- x_delta/2,xtmp.mean()+ x_delta/2])
-    plt.colorbar(ticks=[0.02,0,-0.02])
+    plt.colorbar()
     plt.text(18,-1,'$E[x(t)]$ + ')
 
 
 
     plt.subplot2grid((2, 3), (1, 0),colspan=3)
-    plt.plot(times,x.reshape(-1,400)[:,:50])
-    plt.scatter(times[tau1],x.mean((1,2))[tau1],s = 200,color ='red')
-    plt.scatter(times[tau2],x.mean((1,2))[tau2],s = 200,color ='red')
-    plt.scatter(times[tau3],x.mean((1,2))[tau3],s = 200,color ='red')
+    plt.plot(times,x.reshape(-1,400)[:,:50],zorder = 1)
+    plt.scatter(times[tau1],x.mean((1,2))[tau1],s = 200,color ='red',zorder = 2)
+    plt.scatter(times[tau2],x.mean((1,2))[tau2],s = 200,color ='red',zorder = 2)
+    plt.scatter(times[tau3],x.mean((1,2))[tau3],s = 200,color ='red',zorder = 2)
 
     plt.text(times[tau1],x.mean((1,2))[tau1],f'$t$ = {times[tau1]:.1f}')
     plt.text(times[tau2],x.mean((1,2))[tau2],f'$t$ = {times[tau2]:.1f}')
