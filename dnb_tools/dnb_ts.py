@@ -1,6 +1,8 @@
 import numpy as np 
 import time
 import tqdm
+from sklearn.decomposition import PCA
+
 import dnb_tools
 from  numpy.lib.stride_tricks import sliding_window_view as sliding_window
 
@@ -21,8 +23,14 @@ def EWS_DNB(x,window_size,padding = 'online',normalization = 'straight'):
         x = x /x.std(0)
     elif normalization == 'minmax':
         x = x /(x.max(0) - x.min(0))
+    elif normalization == 'PCA':
+        if x.shape[1] < 10:
+            raise NameError('low dimmention.')
+            return -1
+        pca = PCA(n_components=10)
+        x = pca.fit_transform(x)        
     elif normalization != 'straight':
-        raise NameError('select \'straight\', \'minmax\', or \'std\' ')
+        raise NameError('select \'straight\',\'PCA\', \'minmax\', or \'std\'')
         return -1
     # 1 dim or n dim
     if len(x.shape) ==1:
