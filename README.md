@@ -21,13 +21,6 @@ In addition to the DNB code, this code contains simulation data where the follow
 
 3. The spatial type of the above [3]
 
-[1]	M. Oku and K. Aihara, “On the Covariance Matrix of the Stationary Distribution of a Noisy Dynamical System,” Nonlinear Theory and Its Applications, IEICE, 9(2), 166-184, doi:10.1587/nolta.9.166 (2018).
-
-[2] May, Robert M. "Thresholds and breakpoints in ecosystems with a multiplicity of stable states." Nature 269.5628 (1977): 471-477.
-
-[3] van Nes, Egbert H., and Marten Scheffer. "Implications of spatial heterogeneity for catastrophic regime shifts in ecosystems." Ecology 86.7 (2005): 1797-1807.
-pip install test for time series DNB 
-
 ## Requirements
 This packeage need the following:
 ```code
@@ -49,3 +42,12 @@ Apache 2.0
 
 ## Auther
 Yuji Okamoto (yuji.0001[at]gmail.com)
+
+## Reference
+
+[1]	M. Oku and K. Aihara, “On the Covariance Matrix of the Stationary Distribution of a Noisy Dynamical System,” Nonlinear Theory and Its Applications, IEICE, 9(2), 166-184, doi:10.1587/nolta.9.166 (2018).
+
+[2] May, Robert M. "Thresholds and breakpoints in ecosystems with a multiplicity of stable states." Nature 269.5628 (1977): 471-477.
+
+[3] van Nes, Egbert H., and Marten Scheffer. "Implications of spatial heterogeneity for catastrophic regime shifts in ecosystems." Ecology 86.7 (2005): 1797-1807.
+pip install test for time series DNB 
